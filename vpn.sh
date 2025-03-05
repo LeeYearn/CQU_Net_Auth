@@ -6,7 +6,11 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# 先调用 cqu.sh 进行 API 登录
+# 先调用 out.sh 进行认证注销
+echo "正在进行 CQU 注销..."
+bash "$(dirname "$0")/out.sh"
+
+# 再调用 cqu.sh 进行认证登录
 echo "正在进行 CQU 认证..."
 bash "$(dirname "$0")/cqu.sh"
 
